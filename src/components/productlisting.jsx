@@ -55,7 +55,7 @@ const ProductListing = () => {
                 <select 
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="bg-transparent border-none outline-none text-gray-700 font-medium cursor-pointer"
+                  className="bg-transparent border-none outline-none text-orange-700 font-medium cursor-pointer"
                 >
                   {categories.map(category => (
                     <option key={category} value={category}>{category}</option>
@@ -65,11 +65,11 @@ const ProductListing = () => {
 
               {/* Price Sort */}
               <div className="flex items-center gap-4 bg-white p-2 rounded-lg shadow-md">
-                <ArrowUpDown className="text-gray-500" size={20} />
+                <ArrowUpDown className="text-orange-500" size={20} />
                 <select 
                   value={sortOrder}
                   onChange={(e) => setSortOrder(e.target.value)}
-                  className="bg-transparent border-none outline-none text-gray-700 font-medium cursor-pointer"
+                  className="bg-transparent border-none outline-none text-orange-700 font-medium cursor-pointer"
                 >
                   <option value="none">Sort by price</option>
                   <option value="lowToHigh">Low to High</option>
@@ -85,7 +85,7 @@ const ProductListing = () => {
         <div
           key={product.id}
           onClick={() => navigate(`/product/${product.id}`, { state: { product } })}
-          className="group  rounded-3xl cursor-pointer overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100"
+          className="group  rounded-3xl cursor-pointer overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-orange-100"
         >
           {/* Image Section */}
           <div className="relative pt-[120%] overflow-hidden">

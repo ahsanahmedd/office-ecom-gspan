@@ -11,7 +11,7 @@ const useProducts = () => {
       category: "Ethnic Wear",
       rating: 4.5,
       reviews: 128,
-      inCart: false,
+      inCart: true,
       cartQuantity: 0,
       images: [
         "https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=600&h=800&fit=crop",
@@ -197,11 +197,10 @@ const useProducts = () => {
   const addToCart = (productId) => {
     setProducts(prevProducts => prevProducts.map(product => 
       product.id === productId 
-        ? { ...product, inCart: true, cartQuantity: (product.cartQuantity || 0) + 1 }
+        ? { ...product, inCart: true, cartQuantity: product.cartQuantity ? product.cartQuantity + 1 : 1 }
         : product
     ));
   };
-
   const removeFromCart = (productId) => {
     setProducts(prevProducts => prevProducts.map(product =>
       product.id === productId

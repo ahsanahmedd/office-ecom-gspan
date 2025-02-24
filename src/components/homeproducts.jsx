@@ -51,7 +51,7 @@ const HomeProducts = () => {
       </div>
 
       {/* Cart Preview */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      {/* <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="bg-white/70 backdrop-blur-lg rounded-3xl shadow-lg p-8 border border-neutral-100">
           <div className="flex justify-between items-center mb-8">
             <h3 className="text-2xl text-neutral-800">Shopping Cart ({cart.length})</h3>
@@ -83,7 +83,7 @@ const HomeProducts = () => {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center mb-24">

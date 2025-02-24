@@ -11,8 +11,9 @@ const ProductDetails = () => {
   const product = location.state?.product;
   const [selectedImage, setSelectedImage] = useState(product?.images[0]);
   const [selectedTab, setSelectedTab] = useState('description');
-  const { products } = useProducts(); // Remove setProducts since it's not returned from hook
+  const { products, addToCart } = useProducts(); // Remove setProducts since it's not returned from hook
   const [isAddedToCart, setIsAddedToCart] = useState(false);
+  
 
   // Filter similar products based on category
   const similarProducts = products
@@ -32,16 +33,10 @@ const ProductDetails = () => {
     const formattedTab = tab.toLowerCase().replace(/[^a-z]/g, '');
     setSelectedTab(formattedTab);
   };
-
   const handleAddToCart = () => {
-    // Since we don't have direct access to setProducts, we'll need to implement
-    // cart functionality differently or add it to the useProducts hook
+    addToCart(product.id);
     setIsAddedToCart(true);
-
-    // Reset button state after 2 seconds
-    setTimeout(() => {
-      setIsAddedToCart(false);
-    }, 2000);
+    setTimeout(() => setIsAddedToCart(false), 2000);
   };
 
   return (
