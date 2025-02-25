@@ -9,6 +9,8 @@ import AboutUs from '../components/aboutus.jsx';
 import ProductDetails from '../components/productsdetail.jsx';
 import CartPreview from '../components/cartpreview.jsx';
 import ProductListing from '../components/productlisting.jsx';
+import Checkout from '../components/checkout.jsx';
+import OrderSuccess from '../components/ordersuccess.jsx';
 
 
 const routes = () => {
@@ -22,6 +24,8 @@ const routes = () => {
             <Route path="/about" element={<AboutUs/>}></Route>
             <Route path="/cart" element={<CartPreview/>}></Route>
             <Route path="/collection" element={<ProductListing/>}></Route>
+            <Route path="/checkout" element={<Checkout/>}></Route>
+            <Route path="/order-success" element={<OrderSuccess/>}></Route>
             <Route path="*" element={<NotFoundPage/>}></Route>    
             </Routes>   
             </>

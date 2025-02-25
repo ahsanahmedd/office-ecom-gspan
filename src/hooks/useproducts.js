@@ -11,12 +11,12 @@ const useProducts = () => {
       category: "Ethnic Wear",
       rating: 4.5,
       reviews: 128,
-      inCart: true,
+      inCart: false,
       cartQuantity: 0,
       images: [
-        "https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=600&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1614252370653-c9f4ef6a88a5?w=600&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1614252371303-cbe4e45b283d?w=600&h=800&fit=crop"
+        "https://stylejaipur.com/cdn/shop/files/WhatsAppImage2023-12-12at9.08.16PM.jpg?v=1702541403",
+        "https://www.shivanshfab.com/cdn/shop/files/WhatsAppImage2023-10-12at3.03.29PM.jpg?v=1697172232&width=600",
+        "https://www.shivanshfab.com/cdn/shop/files/11111.jpg?v=1686894766&width=1445"
       ],
       colors: ["#a020f0", "#ffc0cb"],
       sizes: ["S", "M", "L", "XL"]
@@ -33,8 +33,8 @@ const useProducts = () => {
       inCart: false,
       cartQuantity: 0,
       images: [
-        "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=600&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=800&fit=crop",
+        "https://th.bing.com/th/id/OIP.N1rBbkWy-B2KDa-wIjJ3NwHaJ4?w=960&h=1280&rs=1&pid=ImgDetMain",
+        "https://shhoshha.in/wp-content/uploads/2020/09/WhatsApp-Image-2020-10-19-at-9.42.43-AM-1.jpeg",
         "https://images.unsplash.com/photo-1594633313931-7e152d76f436?w=600&h=800&fit=crop"
       ],
       colors: ["#ff0000", "#ffd700"],
@@ -195,20 +195,26 @@ const useProducts = () => {
   ]);
 
   const addToCart = (productId) => {
-    setProducts(prevProducts => prevProducts.map(product => 
-      product.id === productId 
-        ? { ...product, inCart: true, cartQuantity: product.cartQuantity ? product.cartQuantity + 1 : 1 }
-        : product
-    ));
-  };
+    const productToAdd = products.find(product => product.id === productId);
+    if (productToAdd) {
+      productToAdd.inCart = true;
+      const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+      cartProducts.push(productToAdd);
+      localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+    }
+  }; 
+
+
   const removeFromCart = (productId) => {
-    setProducts(prevProducts => prevProducts.map(product =>
-      product.id === productId
-        ? { ...product, inCart: false, cartQuantity: 0 }
-        : product
-    ));
+    const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+    const updatedCartProducts = cartProducts.filter(product => product.id !== productId);
+    localStorage.setItem('cartProducts', JSON.stringify(updatedCartProducts));
+    setProducts(prevProducts => prevProducts.map(product => product.id === productId ? { ...product, inCart: false } : product));
   };
 
+
+
+  
   const updateCartQuantity = (productId, quantity) => {
     setProducts(prevProducts => prevProducts.map(product =>
       product.id === productId
@@ -216,6 +222,8 @@ const useProducts = () => {
         : product
     ));
   };
+
+
 
   return { products, setProducts, addToCart, removeFromCart, updateCartQuantity };
 };
