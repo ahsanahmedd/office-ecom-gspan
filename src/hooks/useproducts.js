@@ -225,9 +225,9 @@ const useProducts = () => {
       inCart: false,
       cartQuantity: 0,
       images: [
+        "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop",
         "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?w=600&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1520975954732-35dd22299614?w=600&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=800&fit=crop"
+        "https://images.unsplash.com/photo-1520975954732-35dd22299614?w=600&h=800&fit=crop"
       ],
       colors: ["#8b4513", "#000000"],
       sizes: ["S", "M", "L", "XL"]
