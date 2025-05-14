@@ -39,12 +39,12 @@ const HeroSection = () => {
 
             <div className="flex flex-wrap gap-4">
               <button  onClick={() => navigate('/collection')} className="px-8 py-4 bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold rounded-xl hover:from-orange-700 hover:to-red-700 transition duration-300 flex items-center group">
-                Shop Now
+                Buy now
                 <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
               </button>
               
               <button onClick={() => navigate('/collection')} className="px-8 py-4 border-2 border-orange-600 text-orange-600 font-bold rounded-xl hover:bg-orange-50 transition duration-300" >
-                View Catalog
+                Review catlog
               </button>
             </div>
 
